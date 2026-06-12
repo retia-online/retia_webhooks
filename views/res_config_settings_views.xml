@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.webhooks.retia</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="25"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Webhooks" string="Webhooks Retia" name="webhooks_retia">
+                    <block title="Configuración de Webhooks de Salida" name="webhooks_retia_config">
+                        <setting title="Configuración del Orquestador" help="Configura el endpoint receptor y token de validación.">
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="webhook_url" class="col-lg-3 o_light_label"/>
+                                    <field name="webhook_url" placeholder="https://tu-orquestador.vercel.app/api/webhooks"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label for="webhook_secret" class="col-lg-3 o_light_label"/>
+                                    <field name="webhook_secret" password="True" placeholder="Secreto de validación"/>
+                                </div>
+                                <div class="mt16">
+                                    <button name="action_test_webhook_connection" string="Probar Conexión" type="object" class="btn btn-primary"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
