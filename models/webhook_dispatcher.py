@@ -31,11 +31,11 @@ class WebhookDispatcher(models.AbstractModel):
                 env = api.Environment(cr, self.env.uid, {})
                 
                 # Obtener parámetros del sistema
-                url = env['ir.config_parameter'].sudo().get_param('webhooks_retia.webhook_url')
-                secret = env['ir.config_parameter'].sudo().get_param('webhooks_retia.webhook_secret')
+                url = env['ir.config_parameter'].sudo().get_param('webhooks.webhook_url')
+                secret = env['ir.config_parameter'].sudo().get_param('webhooks.webhook_secret')
 
                 if not url:
-                    _logger.warning("Webhooks Retia: URL del Endpoint no configurada.")
+                    _logger.warning("Webhooks: URL del Endpoint no configurada.")
                     return
 
                 # Estructura limpia de carga (Payload)
@@ -56,8 +56,8 @@ class WebhookDispatcher(models.AbstractModel):
                     response = requests.post(url, json=payload, headers=headers, timeout=10)
                     if response.status_code != 200:
                         _logger.error(
-                            "Webhooks Retia: Error al enviar webhook (Status %s). Respuesta: %s",
+                            "Webhooks: Error al enviar webhook (Status %s). Respuesta: %s",
                             response.status_code, response.text
                         )
                 except Exception as e:
-                    _logger.error("Webhooks Retia: Fallo al conectar con el orquestador: %s", str(e))
+                    _logger.error("Webhooks: Fallo al conectar con el orquestador: %s", str(e))

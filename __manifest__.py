@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Webhooks Retia Outbound',
+    'name': 'Webhooks',
     'version': '18.0.1.0.0',
     'summary': 'Emisor de Webhooks asíncronos para comunicar Odoo con Next.js/Vercel.',
     'category': 'Technical',

@@ -1,6 +1,6 @@
-======================
-Webhooks Retia Outbound
-======================
+=========
+Webhooks
+=========
 
 Este módulo personalizado de Odoo 18 Community actúa como emisor de Webhooks de salida (Outbound) hacia nuestro orquestador Next.js/Vercel.
 
@@ -36,7 +36,7 @@ El módulo se compone de la siguiente estructura modular estándar de Odoo:
 
 ::
 
-    webhooks_retia/
+    webhooks/
     ├── __init__.py
     ├── __manifest__.py
     ├── models/
@@ -67,7 +67,7 @@ El desarrollo del módulo se estructurará en las siguientes etapas clave:
 
 Fase 1: Creación del Módulo en Docker (Entorno Local)
 ----------------------------------------------------
-1. **Crear Estructura**: Crear el directorio ``webhooks_retia`` dentro de la carpeta de addons local mapeada por Docker.
+1. **Crear Estructura**: Crear el directorio ``webhooks`` dentro de la carpeta de addons local mapeada por Docker.
 2. **Generar Archivos**: Escribir los manifiestos, archivos ``__init__.py`` y subcarpetas.
 3. **Asegurar Permisos**: Validar que los permisos de lectura/escritura de los archivos en el volumen Docker permitan a Odoo cargarlos.
 
@@ -75,7 +75,7 @@ Fase 2: Configuración y Vistas
 ------------------------------
 1. **Crear Modelo de Configuración**: Implementar ``res_config_settings.py`` para almacenar las credenciales de Next.js.
 2. **Desplegar Vista**: Incorporar la interfaz XML de configuración en Odoo 18.
-3. **Validación Visual**: Reiniciar el contenedor Docker de Odoo, instalar el módulo y verificar que la sección "Webhooks Retia" aparece correctamente en la configuración del sistema.
+3. **Validación Visual**: Reiniciar el contenedor Docker de Odoo, instalar el módulo y verificar que la sección "Webhooks" aparece correctamente en la configuración del sistema.
 
 Fase 3: Lógica del Dispatcher y Modelos Heredados
 -------------------------------------------------

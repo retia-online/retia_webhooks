@@ -8,12 +8,12 @@ class ResConfigSettings(models.TransientModel):
 
     webhook_url = fields.Char(
         string="Endpoint de Webhooks",
-        config_parameter='webhooks_retia.webhook_url',
+        config_parameter='webhooks.webhook_url',
         help="URL del endpoint externo de Next.js/Vercel (ej. https://tu-orquestador.vercel.app/api/webhooks)"
     )
     webhook_secret = fields.Char(
         string="Secreto de Validación",
-        config_parameter='webhooks_retia.webhook_secret',
+        config_parameter='webhooks.webhook_secret',
         help="Token secreto de seguridad que se enviará en la cabecera X-Webhook-Secret o x-odoo-webhook-token"
     )
 
